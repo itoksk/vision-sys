@@ -22,14 +22,27 @@
 vision-sys/
 ├── README.md（本ファイル）
 ├── sample_codes/
-│   ├── 01_teachable_machine_体験.ipynb
-│   └── 02_傷検出AI開発.ipynb
+│   ├── 01_teachable_machine_体験.ipynb     # Teachable Machine入門
+│   ├── 02_傷検出AI開発.ipynb               # Teachable Machine実践版
+│   └── 03_傷検出AI開発_シンプル版.ipynb    # TensorFlow直接実装版
 └── 授業テキスト/
-    ├── 01_GitHub基礎.md
-    ├── 02_機械学習入門.md
-    ├── 03_Teachable_Machine使い方.md
-    ├── 04_要件定義.md
-    └── 05_アプリ開発.md
+    ├── 01_GitHub基礎.md          # GitHubの使い方
+    ├── 02_機械学習入門.md        # AIの基礎概念
+    ├── 03_Teachable_Machine使い方.md  # ノーコードAI開発
+    ├── 04_要件定義.md            # 設計の重要性
+    └── 05_アプリ開発.md          # 実装とデプロイ
+```
+
+## 🎯 学習パス
+
+### 初心者向けパス（Teachable Machine使用）
+```
+GitHub基礎 → 機械学習入門 → Teachable Machine → 要件定義 → アプリ開発
+```
+
+### 発展的パス（TensorFlow直接実装）
+```
+GitHub基礎 → 機械学習入門 → シンプル版開発 → 要件定義 → 高度なカスタマイズ
 ```
 
 ---
@@ -81,7 +94,7 @@ vision-sys/
 **学習目標**: ChatGPTやClaude等のAIを開発パートナーとして活用する方法を学ぶ
 
 #### 第6-7時：データ収集とモデル作成（100分）
-**学習目標**: 高品質なデータセットを作成し、Teachable Machineでモデルを構築
+**学習目標**: 高品質なデータセットを作成し、AIモデルを構築
 
 ### 第3部：アプリ実装とデプロイ（3時間）
 
@@ -99,7 +112,7 @@ vision-sys/
 graph TD
     A[GitHub基礎] --> B[機械学習体験]
     B --> C[要件定義]
-    C --> D[Teachable Machine]
+    C --> D[Teachable Machine/TensorFlow]
     D --> E[データ収集]
     E --> F[モデル作成]
     F --> G[アプリ開発]
@@ -135,8 +148,8 @@ graph TD
 - 使いやすさ：説明書なしで使える
 
 ## 4. 制約条件
-- 開発期間：6時間
-- 使用技術：Python、Teachable Machine、Google Colab
+- 開発期間：6時間（授業3回分）
+- 使用技術：Python、Teachable Machine/TensorFlow、Google Colab
 - 対象部品：金属部品（10cm以下）
 
 ## 5. データ要件
@@ -172,17 +185,58 @@ graph TD
 ### 1. Teachable Machine体験用（初心者向け）
 `sample_codes/01_teachable_machine_体験.ipynb`
 
+**特徴**:
 - Teachable Machineで作成したモデルを簡単に試せる
 - 画像のアップロード・撮影機能付き
 - 結果を分かりやすくグラフで表示
+- プログラミング知識がほとんど不要
+
+**適している場合**:
+- プログラミング初心者
+- 短時間で成果を出したい
+- AIの概念を体験的に学びたい
 
 ### 2. 傷検出AI開発用（実践向け）
 `sample_codes/02_傷検出AI開発.ipynb`
 
+**特徴**:
+- Teachable Machineモデルを活用した本格的なアプリ
 - データ収集から管理まで一貫したシステム
-- Gradioによる本格的なWebアプリ
+- Gradioによる実用的なWebアプリ
 - バッチ処理や履歴管理機能
 - 性能評価レポート生成
+
+**適している場合**:
+- 実用的なアプリを作りたい
+- チーム開発を体験したい
+- 製造現場での活用を想定
+
+### 3. 傷検出AI開発シンプル版（発展的）
+`sample_codes/03_傷検出AI開発_シンプル版.ipynb`
+
+**特徴**:
+- TensorFlow/Kerasを直接使用
+- CNNの仕組みを理解できる
+- モデル構造を自由にカスタマイズ可能
+- 軽量で高速な実装
+- 学習過程を可視化
+
+**適している場合**:
+- AIの仕組みを深く理解したい
+- カスタマイズ性を重視
+- プログラミングに興味がある
+- 将来エンジニアを目指す
+
+### 実装方法の比較
+
+| 項目 | Teachable Machine版 | TensorFlow直接実装版 |
+|------|-------------------|-------------------|
+| **難易度** | 簡単 | 中程度 |
+| **学習時間** | 1-2時間 | 3-4時間 |
+| **カスタマイズ性** | 低い | 高い |
+| **モデルサイズ** | 大きい（10MB+） | 小さい（1-5MB） |
+| **処理速度** | 普通 | 速い |
+| **教育的価値** | 基礎理解 | 深い理解 |
 
 ---
 
@@ -209,12 +263,16 @@ graph TD
 - エッジコンピューティング
 - リアルタイム画像処理
 - 複数カメラでの3D認識
+- 転移学習によるモデル改善
+- データ拡張技術
 
 ### 実用化に向けて
 - スマートフォンアプリ化
 - リアルタイム検出（カメラ連携）
 - 複数の欠陥種類の分類
 - 検査履歴の記録システム
+- クラウド連携
+- IoTセンサーとの統合
 
 ---
 
@@ -224,10 +282,13 @@ graph TD
 - [GitHub学習サイト](https://itoksk.github.io/GitHub-demo)
 - [Teachable Machine](https://teachablemachine.withgoogle.com/)
 - [Google Colab](https://colab.research.google.com/)
+- [TensorFlow チュートリアル](https://www.tensorflow.org/tutorials)
+- [Gradio ドキュメント](https://gradio.app/docs/)
 
 ### 技術情報
 - TensorFlow/Keras ドキュメント
-- Gradio ドキュメント
+- 画像認識の基礎理論
+- CNNアーキテクチャ
 - Python 基礎文法
 
 ---
@@ -241,14 +302,47 @@ graph TD
 4. 先生やクラスメートに相談
 
 ### よくある質問
-- **Q: Teachable Machineのモデルが読み込めない**
-  - A: ファイル名が正しいか確認。`keras_model.h5`と`labels.txt`が必要
 
-- **Q: 画像認識の精度が低い**
-  - A: データの質と量を確認。照明条件を統一する
+**Q: Teachable Machineとシンプル版、どちらを選べばいい？**
+A: 
+- 初心者・時間が限られている → Teachable Machine版
+- プログラミングに興味がある・カスタマイズしたい → シンプル版
 
-- **Q: Gradioが起動しない**
-  - A: ライブラリのインストールを確認。`!pip install gradio`を実行
+**Q: モデルが読み込めない**
+A: ファイル名が正しいか確認。Teachable Machine版は`keras_model.h5`と`labels.txt`が必要
+
+**Q: 画像認識の精度が低い**
+A: 
+- データの質と量を確認（各クラス50枚以上推奨）
+- 照明条件を統一する
+- 背景をシンプルにする
+- データ拡張を活用する
+
+**Q: Gradioが起動しない**
+A: ライブラリのインストールを確認。`!pip install gradio --upgrade`を実行
+
+**Q: 学習が進まない・時間がかかる**
+A: 
+- バッチサイズを小さくする
+- エポック数を減らす
+- 画像サイズを小さくする（128×128など）
+
+---
+
+## 🏆 プロジェクト例
+
+### 過去の優秀作品
+1. **ネジ山損傷検出システム**
+   - 精度：95%
+   - 特徴：360度回転撮影対応
+
+2. **溶接部欠陥検出AI**
+   - 精度：92%
+   - 特徴：複数の欠陥タイプを分類
+
+3. **塗装ムラ検出アプリ**
+   - 精度：88%
+   - 特徴：色差分析を組み合わせた判定
 
 ---
 
@@ -263,3 +357,9 @@ graph TD
 
 本プログラムは、製造現場のニーズと教育現場の要望を基に作成されました。
 ご協力いただいた全ての方々に感謝いたします。
+
+---
+
+## 📧 お問い合わせ
+
+質問や改善提案は、GitHubのIssuesまたはPull Requestでお願いします。

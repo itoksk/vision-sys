@@ -5,8 +5,9 @@
 ## 📚 授業概要
 
 - **対象**: 工業高校2-3年生（プログラミング初心者）
-- **時間**: 全10時間（50分×10コマ）
+- **時間**: 全12時間（50分×12コマ）
 - **目標**: 要件定義から始めて、AIを活用しながら実用的な傷検出アプリを開発する
+- **新規追加**: AI画像生成技術の習得
 
 ### 必要な環境・準備物
 - インターネット接続可能なPC（1人1台）
@@ -25,12 +26,27 @@ vision-sys/
 │   ├── 01_teachable_machine_体験.ipynb     # Teachable Machine入門
 │   ├── 02_傷検出AI開発.ipynb               # Teachable Machine実践版
 │   └── 03_傷検出AI開発_シンプル版.ipynb    # TensorFlow直接実装版
+├── codespaces/                     # GitHub Codespaces用実行スクリプト
+│   ├── README.md                   # Codespaces使用ガイド
+│   ├── 01_github_basics/           # GitHub基礎実習
+│   ├── 02_ml_intro/               # 機械学習入門実習
+│   ├── 03_teachable_machine/      # Teachable Machine実習
+│   ├── 04_requirements/           # 要件定義実習
+│   ├── 05_app_dev/               # アプリ開発実習
+│   └── 06_image_generation/       # AI画像生成実習
+├── kaggle_notebooks/              # Kaggle Notebook用スクリプト
+│   ├── README.md                   # Kaggle使用ガイド
+│   ├── 01_ml_intro_kaggle.py      # 機械学習入門
+│   ├── 02_teachable_machine_kaggle.py  # Teachable Machine
+│   ├── 03_damage_detection_kaggle.py   # 傷検出アプリ
+│   └── 04_image_generation_kaggle.py   # AI画像生成
 └── 授業テキスト/
     ├── 01_GitHub基礎.md          # GitHubの使い方
     ├── 02_機械学習入門.md        # AIの基礎概念
     ├── 03_Teachable_Machine使い方.md  # ノーコードAI開発
     ├── 04_要件定義.md            # 設計の重要性
-    └── 05_アプリ開発.md          # 実装とデプロイ
+    ├── 05_アプリ開発.md          # 実装とデプロイ
+    └── 06_AI画像生成入門.md      # Stable Diffusion活用
 ```
 
 ## 🎯 学習パス
@@ -102,8 +118,11 @@ GitHub基礎 → 機械学習入門 → シンプル版開発 → 要件定義 �
 #### 第8-9時：Google Colabでアプリ開発（100分）
 **学習目標**: AIのサポートを受けながら、実用的なWebアプリを完成させる
 
-#### 第10時：発表と振り返り（50分）
-**学習目標**: プロジェクトの成果を共有し、開発プロセスを振り返る
+#### 第10時：AI画像生成入門（50分）
+**学習目標**: Stable Diffusionを使ってAI画像生成の基礎を学ぶ
+
+#### 第11-12時：画像生成活用と発表（100分）
+**学習目標**: 製造業でのAI画像生成活用を考え、プロジェクトの成果を発表する
 
 ---
 
@@ -178,6 +197,46 @@ graph TD
 1. **背景を説明する**: 自分の状況と目的を明確に
 2. **具体的な条件を示す**: 使用ツールや制約を明記
 3. **段階的に質問する**: 一度に全てを聞かない
+
+---
+
+## 💻 GitHub Codespacesでの実行
+
+### Codespacesの起動
+1. GitHubでこのリポジトリを開く
+2. 緑色の「Code」ボタンをクリック
+3. 「Codespaces」タブを選択
+4. 「Create codespace on main」をクリック
+
+### セットアップ
+```bash
+# Codespacesが起動したら実行
+bash setup_codespaces.sh
+```
+
+### 各授業の実行方法
+```bash
+# 機械学習入門
+cd codespaces/02_ml_intro
+python codespaces_ml_intro.py sample.jpg
+
+# Gradioアプリ
+cd codespaces/05_app_dev
+python gradio_app.py
+
+# AI画像生成
+cd codespaces/06_image_generation
+python generate_image.py --prompt "industrial robot"
+```
+
+詳細は [codespaces/README.md](codespaces/README.md) を参照してください。
+
+### Kaggle Notebookでの実行
+```bash
+# Kaggle.comでNotebookを作成
+# 各スクリプトをコピー&ペーストして実行
+# 詳細は kaggle_notebooks/README.md を参照
+```
 
 ---
 
@@ -266,6 +325,8 @@ graph TD
 - 複数カメラでの3D認識
 - 転移学習によるモデル改善
 - データ拡張技術
+- AI画像生成でのカスタムモデル作成
+- LoRAやDreamBoothでの専門的な学習
 
 ### 実用化に向けて
 - スマートフォンアプリ化
@@ -303,6 +364,14 @@ graph TD
 4. 先生やクラスメートに相談
 
 ### よくある質問
+
+**Q: Teachable Machineからモデルをダウンロードする時は何を選べばいい？**
+A: 
+1. 「モデルをエクスポート」をクリック
+2. 「Tensorflow」タブを選択
+3. 「Keras」を選択
+4. 「モデルをダウンロード」をクリック
+→ `keras_model.h5`と`labels.txt`の2つのファイルがダウンロードされます
 
 **Q: Teachable Machineとシンプル版、どちらを選べばいい？**
 A: 

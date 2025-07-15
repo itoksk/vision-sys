@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 出力ファイル
+output/
+results/
+*.log
+
+# 生成された画像（授業で作成される一時ファイル）
+generated_images/
+!generated_images/README.md
+
+# 保存したい画像は saved_images/ に入れる
+# saved_images/ はGitで管理される
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# モデルファイル
+*.h5
+*.ckpt
+*.pth
+*.safetensors
+
+# 大きなデータファイル
+*.zip
+*.tar.gz
+*.tar
+
+# 一時ファイル
+tmp/
+temp/
+*.tmp
+*.temp

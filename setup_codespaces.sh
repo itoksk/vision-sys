@@ -48,7 +48,7 @@ pip list | grep -E "(tensorflow|pillow|matplotlib|opencv|ultralytics|numpy|gradi
 echo -e "\n📁 プロジェクト構造:"
 echo "vision-sys/"
 echo "├── 授業テキスト/        # 各授業の教材"
-echo "├── sample_codes/       # Jupyterノートブック"
+echo "├── googlecolab/        # Google Colab用ノートブック"
 echo "├── codespaces/         # Codespaces用実行スクリプト"
 echo "│   ├── 01_github_basics/      # GitHub基礎"
 echo "│   ├── 02_ml_intro/           # 機械学習入門"

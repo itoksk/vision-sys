@@ -225,9 +225,18 @@ def main():
         print("⚠️  編集内容（プロンプト）を指定してください")
         return
     
-    # 出力ファイル名
+    # 出力ディレクトリとファイル名を設定
+    output_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'generated_images', '06_image_generation')
+    os.makedirs(output_dir, exist_ok=True)
+    
     if not args.output:
-        args.output = args.input.replace('.', '_edited.')
+        basename = os.path.basename(args.input)
+        name, ext = os.path.splitext(basename)
+        args.output = os.path.join(output_dir, f"{name}_edited{ext}")
+    else:
+        # 相対パスの場合は出力ディレクトリに保存
+        if not os.path.isabs(args.output):
+            args.output = os.path.join(output_dir, args.output)
     
     # 編集器を初期化
     editor = ImageEditor()
@@ -252,7 +261,9 @@ def main():
         comparison.paste(original, (0, 0))
         comparison.paste(edited_image.resize(original.size), (original.width, 0))
         
-        comparison_path = args.output.replace('.', '_comparison.')
+        # 比較画像のパスも出力ディレクトリに
+        comparison_name = os.path.basename(args.output).replace('.', '_comparison.')
+        comparison_path = os.path.join(output_dir, comparison_name)
         comparison.save(comparison_path)
         print(f"📊 比較画像を保存: {comparison_path}")
         

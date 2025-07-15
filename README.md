@@ -22,7 +22,7 @@
 ```
 vision-sys/
 ├── README.md（本ファイル）
-├── sample_codes/
+├── googlecolab/
 │   ├── 01_teachable_machine_体験.ipynb     # Teachable Machine入門
 │   ├── 02_傷検出AI開発.ipynb               # Teachable Machine実践版
 │   └── 03_傷検出AI開発_シンプル版.ipynb    # TensorFlow直接実装版
@@ -243,7 +243,7 @@ python generate_image.py --prompt "industrial robot"
 ## 🔧 サンプルコードの使い方
 
 ### 1. Teachable Machine体験用（初心者向け）
-`sample_codes/01_teachable_machine_体験.ipynb`
+`googlecolab/01_teachable_machine_体験.ipynb`
 
 **特徴**:
 - Teachable Machineで作成したモデルを簡単に試せる
@@ -257,7 +257,7 @@ python generate_image.py --prompt "industrial robot"
 - AIの概念を体験的に学びたい
 
 ### 2. 傷検出AI開発用（実践向け）
-`sample_codes/02_傷検出AI開発.ipynb`
+`googlecolab/02_傷検出AI開発.ipynb`
 
 **特徴**:
 - Teachable Machineモデルを活用した本格的なアプリ
@@ -272,7 +272,7 @@ python generate_image.py --prompt "industrial robot"
 - 製造現場での活用を想定
 
 ### 3. 傷検出AI開発シンプル版（発展的）
-`sample_codes/03_傷検出AI開発_シンプル版.ipynb`
+`googlecolab/03_傷検出AI開発_シンプル版.ipynb`
 
 **特徴**:
 - TensorFlow/Kerasを直接使用

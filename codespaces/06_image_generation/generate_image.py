@@ -230,10 +230,17 @@ def main():
         print("  python generate_image.py --examples")
         return
     
-    # 出力ファイル名を生成
+    # 出力ディレクトリとファイル名を設定
+    output_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'generated_images', '06_image_generation')
+    os.makedirs(output_dir, exist_ok=True)
+    
     if not args.output:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        args.output = f"generated_{timestamp}.png"
+        args.output = os.path.join(output_dir, f"generated_{timestamp}.png")
+    else:
+        # 相対パスの場合は出力ディレクトリに保存
+        if not os.path.isabs(args.output):
+            args.output = os.path.join(output_dir, args.output)
     
     # 画像生成器を初期化
     generator = ImageGenerator(args.model)

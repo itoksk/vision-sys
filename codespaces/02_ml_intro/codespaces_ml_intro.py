@@ -38,11 +38,13 @@ def print_section(title):
     print("=" * 50)
 
 
-def vgg16_image_classification(image_path, output_dir="output"):
+def vgg16_image_classification(image_path, output_dir=None):
     """VGG16を使った画像分類"""
     print_section("VGG16による画像分類")
     
-    # 出力ディレクトリ作成
+    # 出力ディレクトリを設定
+    if output_dir is None:
+        output_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'generated_images', '02_ml_intro')
     os.makedirs(output_dir, exist_ok=True)
     
     # モデルを読み込む
@@ -96,9 +98,14 @@ def vgg16_image_classification(image_path, output_dir="output"):
     return model, img_array, results
 
 
-def visualize_feature_maps(model, img_array, output_dir="output"):
+def visualize_feature_maps(model, img_array, output_dir=None):
     """特徴マップの可視化"""
     print_section("特徴マップの可視化")
+    
+    # 出力ディレクトリを設定
+    if output_dir is None:
+        output_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'generated_images', '02_ml_intro')
+    os.makedirs(output_dir, exist_ok=True)
     
     # 最初の畳み込み層の出力を取得
     layer_outputs = [layer.output for layer in model.layers[1:6]]
@@ -125,9 +132,14 @@ def visualize_feature_maps(model, img_array, output_dir="output"):
     print(f"特徴マップを保存しました: {output_path}")
 
 
-def yolo_person_detection(image_path, output_dir="output"):
+def yolo_person_detection(image_path, output_dir=None):
     """YOLOv8を使った人物検出"""
     print_section("YOLO人物検出")
+    
+    # 出力ディレクトリを設定
+    if output_dir is None:
+        output_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'generated_images', '02_ml_intro')
+    os.makedirs(output_dir, exist_ok=True)
     
     # YOLOv8モデルをロード（初回は自動ダウンロード）
     print("YOLOモデルをロード中...")
@@ -185,9 +197,14 @@ def yolo_person_detection(image_path, output_dir="output"):
     return result_image, person_detections
 
 
-def opencv_person_detection(image_path, output_dir="output"):
+def opencv_person_detection(image_path, output_dir=None):
     """OpenCVのHOG + SVMを使った人物検出"""
     print_section("OpenCV人物検出")
+    
+    # 出力ディレクトリを設定
+    if output_dir is None:
+        output_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'generated_images', '02_ml_intro')
+    os.makedirs(output_dir, exist_ok=True)
     
     # 画像を読み込み
     image = cv2.imread(image_path)
@@ -247,9 +264,14 @@ def opencv_person_detection(image_path, output_dir="output"):
     return result_image, person_detections
 
 
-def opencv_face_detection(image_path, output_dir="output"):
+def opencv_face_detection(image_path, output_dir=None):
     """OpenCVのカスケード分類器を使った顔検出"""
     print_section("OpenCV顔検出")
+    
+    # 出力ディレクトリを設定
+    if output_dir is None:
+        output_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'generated_images', '02_ml_intro')
+    os.makedirs(output_dir, exist_ok=True)
     
     # 画像を読み込み
     image = cv2.imread(image_path)
@@ -291,9 +313,14 @@ def opencv_face_detection(image_path, output_dir="output"):
     return result_image, face_detections
 
 
-def compare_all_methods(image_path, output_dir="output"):
+def compare_all_methods(image_path, output_dir=None):
     """すべての検出方法を比較"""
     print_section("すべての検出方法の比較")
+    
+    # 出力ディレクトリを設定
+    if output_dir is None:
+        output_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'generated_images', '02_ml_intro')
+    os.makedirs(output_dir, exist_ok=True)
     
     # 各手法で検出実行
     yolo_result, yolo_detections = yolo_person_detection(image_path, output_dir)

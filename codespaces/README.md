@@ -575,6 +575,11 @@ python gradio_app.py --language ja
    python generate_image.py \
      --prompt "metal surface with scratch defect, close-up, inspection lighting" \
      --model realistic-vision
+   
+   # シンプルな狼アイコン
+   python generate_image.py \
+     --prompt "simple wolf icon, minimalist design, black and white, clean lines, vector style, flat design, logo, white background" \
+     --negative "realistic, detailed fur, complex shading, 3D, photorealistic, cluttered, busy design, multiple colors, gradient"
    ```
    
    **出力ディレクトリについて**:
@@ -590,7 +595,7 @@ python gradio_app.py --language ja
    # 傷の除去シミュレーション
    python edit_image.py --examples
    
-   # 簡単なマスクを自動作成して修正
+   # 簡単なマスクを自動作成して修正 
    python edit_image.py \
      --input damaged_part.jpg \
      --create-mask center \
